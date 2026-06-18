@@ -1,0 +1,57 @@
+# ───────────────────────── Android / Gradle ─────────────────────────
+# Build outputs and caches (regenerated on every build)
+.gradle/
+build/
+android/.gradle/
+android/build/
+android/app/build/
+android/captures/
+android/.cxx/
+
+# Machine-specific SDK path — must NOT be committed
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+.kotlin/
+
+# Keystores and signing secrets — never commit these
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+
+# ───────────────────────── Python / server ──────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+
+# ───────────────────────── Runtime data / secrets ───────────────────
+# The persistent media volume — your actual photos, do not commit
+data/
+photoBackup/
+*.db
+*.db-wal
+*.db-shm
+
+# Environment / API keys (e.g. SYNC_API_KEY lives here)
+.env
+*.env
+
+# ───────────────────────── OS junk ──────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ───────────────────────── Keep release APKs ────────────────────────
+# build/ above already ignores APKs produced under app/build/outputs.
+# Put the APK you want to publish in releases/ and it WILL be tracked.
+!releases/
+!releases/**

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="120dp"
+    android:layout_margin="2dp">
+    <ImageView android:id="@+id/thumb"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:scaleType="centerCrop" android:background="#1B2030"/>
+    <View android:id="@+id/statusDot"
+        android:layout_width="12dp" android:layout_height="12dp"
+        android:layout_gravity="top|end" android:layout_margin="6dp"
+        android:background="@drawable/dot_unknown"/>
+    <TextView android:id="@+id/videoBadge"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start" android:layout_margin="4dp"
+        android:text="VIDEO" android:textSize="9sp" android:textColor="#FFFFFF"
+        android:background="#99000000" android:padding="2dp" android:visibility="gone"/>
+</FrameLayout>

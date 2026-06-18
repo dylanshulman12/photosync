@@ -1,0 +1,25 @@
+services:
+  photosync:
+    build: .
+    image: photosync
+    container_name: photosync
+    ports:
+      - "8444:8000"
+    environment:
+      # Auth: set this to require X-Api-Key on every /api route.
+      # Leave it empty (or unset) to run the server open.
+      SYNC_API_KEY: "${SYNC_API_KEY:-}"
+      DATA: /data
+    volumes:
+      # Everything (SQLite index + media + thumbs + tmp) lives in this one
+      # host folder. Move photoBackup to another machine, repoint this path
+      # if the username differs, and `docker compose up -d` to restore.
+      - /path/to/folder/photoBackup:/data
+    restart: unless-stopped
+    healthcheck:
+      # python is already in the image, so no need for curl/wget.
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8000/healthz').status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

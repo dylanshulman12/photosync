@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0F12">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="#FFFFFF" android:textSize="20sp"
+                android:textStyle="bold"/>
+            <Button android:id="@+id/settingsBtn"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="?android:attr/buttonBarButtonStyle"
+                android:text="@string/settings" android:textColor="#5B9DFF"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/subtitle"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/scanning" android:textColor="#8B94A3" android:textSize="13sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="12dp">
+            <Button android:id="@+id/syncBtn"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:text="@string/sync_now" android:backgroundTint="#5B9DFF" android:textColor="#06101F"/>
+            <Button android:id="@+id/pullBtn"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="@string/pull" android:backgroundTint="#1B2030" android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <Button android:id="@+id/stopBtn"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/stop" android:backgroundTint="#5A2230" android:textColor="#FFFFFF"
+            android:visibility="gone"/>
+
+        <ProgressBar android:id="@+id/progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:visibility="gone" android:layout_marginTop="6dp"/>
+
+        <TextView android:id="@+id/statusLine"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="" android:textColor="#3AD6A0" android:textSize="13sp"
+            android:layout_marginTop="2dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="@string/auto_backup" android:textColor="#FFFFFF"/>
+            <androidx.appcompat.widget.SwitchCompat android:id="@+id/backupSwitch"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <RadioGroup android:id="@+id/intervalGroup"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:visibility="gone">
+            <RadioButton android:id="@+id/daily" android:text="@string/daily"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:textColor="#E8EAED"/>
+            <RadioButton android:id="@+id/weekly" android:text="@string/weekly"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:textColor="#E8EAED"/>
+            <RadioButton android:id="@+id/monthly" android:text="@string/monthly"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:textColor="#E8EAED"/>
+        </RadioGroup>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/grid"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:padding="2dp"/>
+</LinearLayout>
